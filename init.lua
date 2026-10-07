@@ -98,8 +98,8 @@ vim.g.have_nerd_font = false
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
--- bacjkground set to light mode
-vim.o.background = 'light'
+-- background set to dark mode
+vim.o.background = 'dark'
 vim.opt.termguicolors = false
 
 -- Persistent undo already enabled above; keep history long and cap memory

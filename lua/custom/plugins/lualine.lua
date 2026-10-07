@@ -8,8 +8,8 @@ return {
       -- 修复点 1：使用 ANSI 颜色码 (0-15) 代替字符串
       -- 这些数字在任何终端下都代表标准颜色
       local colors = {
-        bg = '#ffffffff', -- 状态栏背景
-        fg = '#000000ff', -- 前景文字
+        bg = '#00000000', -- 状态栏背景 (跟随终端深色背景)
+        fg = '#ffffffff', -- 前景文字
         yellow = '#e5c07b',
         cyan = '#56b6c2',
         darkblue = '#61afef',

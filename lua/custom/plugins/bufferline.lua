@@ -76,55 +76,55 @@ return {
     },
 
     -- [修复1 & 3]：自定义高亮
-    -- 针对你的浅色背景进行了高对比度调整
+    -- 深色背景高对比度调整
     highlights = {
-      -- 1. 整个栏的填充背景 (浅灰)
+      -- 1. 整个栏的填充背景 (深灰)
       fill = {
-        ctermbg = 254, -- 浅灰
-        ctermfg = 235,
+        ctermbg = 235, -- 深灰
+        ctermfg = 250,
       },
 
-      -- 2. 未选中的标签 (浅灰底，深灰字)
+      -- 2. 未选中的标签 (深灰底，浅灰字)
       background = {
-        ctermbg = 254,
-        ctermfg = 240, -- 深灰字
+        ctermbg = 235,
+        ctermfg = 245, -- 中灰字
       },
 
-      -- 3. 选中的标签 (黑底，白字 -> 强凸显)
+      -- 3. 选中的标签 (白底，黑字 -> 强凸显)
       buffer_selected = {
-        ctermbg = 0, -- 黑色背景
-        ctermfg = 15, -- 白色文字
+        ctermbg = 15, -- 白色背景
+        ctermfg = 0, -- 黑色文字
         bold = true,
         italic = false,
       },
 
       -- 4. 数字编号
       numbers = {
-        ctermbg = 254,
-        ctermfg = 240,
+        ctermbg = 235,
+        ctermfg = 245,
         italic = false,
       },
       numbers_selected = {
-        ctermbg = 0, -- 跟随选中背景
-        ctermfg = 15,
+        ctermbg = 15, -- 跟随选中背景
+        ctermfg = 0,
         bold = true,
         italic = false,
       },
 
       -- 5. 分割线 (隐形处理)
       separator = {
-        ctermbg = 254,
-        ctermfg = 254,
+        ctermbg = 235,
+        ctermfg = 235,
       },
       separator_selected = {
-        ctermbg = 0, -- 必须和 buffer_selected 背景一致
-        ctermfg = 254, -- 连接处的颜色
+        ctermbg = 15, -- 必须和 buffer_selected 背景一致
+        ctermfg = 235, -- 连接处的颜色
       },
 
       -- 6. 侧边栏标题区域
       offset_separator = {
-        ctermbg = 254,
-        ctermfg = 254,
+        ctermbg = 235,
+        ctermfg = 235,
       },
     },
   },
