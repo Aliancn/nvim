@@ -24,8 +24,16 @@ return {
         },
         sort = { sorter = 'filetype' },
         view = { width = 30 },
-        filters = { dotfiles = true },
+        filters = { dotfiles = false },
       }
+      -- H toggles hidden (dotfile) visibility inside the tree
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'NvimTreeSetup',
+        callback = function()
+          local api = require 'nvim-tree.api'
+          vim.keymap.set('n', 'H', api.tree.toggle_hidden_filter, { desc = 'NvimTree toggle hidden', buffer = 0 })
+        end,
+      })
     end,
   },
 }
