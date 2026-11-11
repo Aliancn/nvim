@@ -823,10 +823,19 @@ require('lazy').setup({
       -- enable highlighting + indentation for every filetype that has a parser
       local function enable_ts()
         local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
-        if lang and pcall(vim.treesitter.language.add, lang) then
-          vim.treesitter.start()
-          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        if not lang then
+          return
         end
+        -- nvim 0.12: language.add returns nil+err (instead of throwing) when no parser
+        -- is installed, so pcall alone is not enough to tell success from failure
+        local add_ok, loaded = pcall(vim.treesitter.language.add, lang)
+        if not add_ok or not loaded then
+          return
+        end
+        if not pcall(vim.treesitter.start) then
+          return
+        end
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
       end
       vim.api.nvim_create_autocmd('FileType', {
         group = vim.api.nvim_create_augroup('custom-treesitter-start', { clear = true }),

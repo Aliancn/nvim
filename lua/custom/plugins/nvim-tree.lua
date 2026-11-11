@@ -8,6 +8,10 @@ return {
     },
     config = function()
       require('nvim-tree').setup {
+        -- netrw 已在 init.lua 里通过 vim.g.loaded_netrw 禁用，无需 hijack。
+        -- 且 nvim 0.12 中 `autocmd! FileExplorer *` 会报 E216（该 augroup 不存在），
+        -- 导致启动时刷出错误。
+        hijack_netrw = false,
         renderer = {
           icons = {
             show = {
